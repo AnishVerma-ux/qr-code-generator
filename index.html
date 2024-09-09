@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+    padding: 0px;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+width: 100%;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #05668D;
+
+
+}
+.container{
+width: 80%;
+height: 80%;
+background-color: aqua;
+padding-left: 10px;
+padding-top: 30px;
+position: relative;
+box-shadow: 0 0 40px rgb(10, 176, 194);
+
+}
+h1{
+color: #F0F3BD;
+padding-bottom:30px;
+position: relative;
+padding-left: 25%;
+
+}
+input{
+position: relative;
+left: 16%;
+top: 40px;
+padding: 10px;
+margin-bottom: 10px;
+width: 60%;
+}
+button{
+    position: relative;
+left: 70px;
+padding: 10px;
+top: 60px;
+width: 30%;
+left: 30%;
+border-radius: 10px;
+
+}
+button:hover{
+    background-color: aquamarine;
+    cursor: pointer;
+}
+img{
+    padding-top: 50px;
+    position: relative;
+    padding-left: 63px;
+}
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>
+            QR CODE GENERATOR
+        </h1>
+        <input type="text" id="inputid" placeholder="paste your link"> <br>
+        <button id="buttonid">
+            click here 
+        </button>
+        <img src="" alt="" id="imgid">
+    </div>
+    <script >
+        const inputa=document.getElementById('inputid');
+ const buttonb=document.getElementById('buttonid')
+ const imgc=document.getElementById('imgid');
+
+
+ buttonb.addEventListener('click',()=>{
+    const inputValue=inputa.value;
+    if(inputValue==''){
+       alert('please enter valid url');
+    }
+    else{
+imgc.src=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${inputValue}`;
+imgc.alt=`image attribute is ${inputValue}`;
+
+    }
+ })
+
+    </script>
+</body>
+</html>
